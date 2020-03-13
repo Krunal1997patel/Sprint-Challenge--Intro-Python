@@ -17,3 +17,38 @@
 #     pass
 #
 # Put a comment noting which class is the base class
+
+
+class Vehicle:
+    print("Vehicle")
+    pass
+
+
+class GroundVehicle(Vehicle):
+    print("GroundVehicle child of Vehicle")
+    pass
+
+
+class Car(GroundVehicle):
+    print("Car child of GroundVehicle")
+    pass
+
+
+class Motorcycle(GroundVehicle):
+    print("Motorcycle child of GroundVehicle")
+    pass
+
+
+class FlightVehicle(Vehicle):
+    print("FlightVehicle child of Vehicle")
+    pass
+
+
+class Airplane(FlightVehicle):
+    print("Airplane child of FlightVehicle")
+    pass
+
+
+class Starship(FlightVehicle):
+    print("Starship child of FlightVehicle")
+    pass
