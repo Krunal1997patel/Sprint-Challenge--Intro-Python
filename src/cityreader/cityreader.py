@@ -4,13 +4,13 @@ import csv
 
 
 class City:
-    def __init__(self, name, lat, log):
+    def __init__(self, name, lat, lon):
         self.name = name
         self.lat = lat
-        self.log = log
+        self.lon = lon
 
     def __str__(self):
-        return f"{self.name}, {self.lat}, {self.log}\n"
+        return f"{self.name}, {self.lat}, {self.lon}\n"
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -35,9 +35,10 @@ def cityreader(cities=[]):
     # `cities` list
     with open("cities.csv", "r") as csvCities:
         read_city = csv.reader(csvCities)
+        next(read_city)
 
         for city in read_city:
-            cities.append(City(city[0], city[3], city[4]))
+            cities.append(City(city[0], float(city[3]), float(city[4])))
 
     return cities
 
@@ -46,7 +47,7 @@ cityreader(cities)
 
 # Print the list of cities (name, lat, log), 1 record per line.
 for c in cities:
-    print(f"{c.name}, {c.lat}, {c.log}")
+    print(f"{c.name}, {c.lat}, {c.lon}")
 
 # STRETCH GOAL!
 #
